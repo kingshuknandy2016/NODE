@@ -1,0 +1,53 @@
+show databases;
+use node-users;  //Creating DataBase
+show collections;  //Showing name of tables
+db.createCollections("users"); //Creating Table
+show collections;
+
+db.users.insert({
+    name:"kingshuk",
+	 email:"k@b",
+	 username:"kilo",
+	 password:"1234"
+
+});
+
+db.users.insert({
+     name:"Tom",
+	 email:"a@b",
+	 username:"pat"
+});
+
+db.users.insert({
+     name:"Dick",
+	 email:"cat@b",
+	 username:"runnung",
+	age:"23"
+});
+
+db.users.insert({
+     name:"Hary",
+	 email:"trick@b",
+	 username:"runnung",
+	age:"23"
+});
+
+=======================================
+//Similar to select query//We can pass keys tofind(),
+db.users.find();
+db.users.find().pretty();
+------------------------------
+db.users.find({"username":"runnung"}).pretty();
+db.users.find({"username":"runnung","email":"cat@b"}).pretty();
+
+==============================================
+db.users.update({key},{set:{key : values}});
+db.users.update({"username":"runnung","email":"cat@b"},{$set:{"name" : "Sonam" ,"salary":40}});
+=================================================================================
+
+db.users.remove({k:v});
+db.users.drop();  
+
+
+first use <dbName>   //to drop entire db;
+db.dropDatabase;
